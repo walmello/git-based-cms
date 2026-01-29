@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show content
-        run: echo "content: ${{ github.event.inputs.content }}"
+        run: echo ${{ github.event.inputs.content }}
