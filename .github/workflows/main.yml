@@ -12,5 +12,24 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: show content
-        run: echo ${{ github.event.inputs.content }}
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true  # permite push usando GITHUB_TOKEN
+
+      - name: Criar/atualizar arquivo
+        run: |
+          # Nome do arquivo baseado em timestamp
+          FILENAME="user-data-$(date +%s).json"
+          
+          # Cria o arquivo com conteúdo do input
+          echo '${{ github.event.inputs.content }}' > "$FILENAME"
+          echo "Arquivo criado: $FILENAME"
+
+      - name: Commit e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Adicionando dados do user via workflow_dispatch" || echo "Nada para commitar"
+          git push origin main
