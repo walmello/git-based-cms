@@ -1,0 +1,9 @@
+name: Testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    steps:
+      - run: echo "hello world
