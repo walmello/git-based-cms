@@ -2,7 +2,7 @@ local_backend: true
 
 backend:
   name: github
-  repo: owner-name/repo-name
+  repo: walmello/git-based-cms
   branch: main
 
 media_folder: "images/uploads"
