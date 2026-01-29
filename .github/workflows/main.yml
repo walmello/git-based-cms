@@ -2,9 +2,14 @@ name: Testing
 
 on:
   workflow_dispatch:
+    inputs:
+      content:
+        description: 'JSON stringified with data to be sent'
+        default: {}
+        required: false
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world"
+      - run: echo "content: ${{ github.event.input.nome }}"
