@@ -16,7 +16,6 @@ jobs:
       - uses: pnpm/action-setup@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
-      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
