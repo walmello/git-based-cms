@@ -12,5 +12,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test content
-      - run: echo "content: ${{ github.event.inputs.content }}"
+      - name: show content
+        run: echo "content: ${{ github.event.inputs.content }}"
